@@ -1,4 +1,6 @@
 ﻿import Link from "next/link";
+import Image from "next/image";
+
 const BOOKING_URL = "/#book";
 
 export const navLinks = [
@@ -9,15 +11,15 @@ export const navLinks = [
   { href: "/#contact", label: "Contact" },
 ];
 
-export function LogoMark({ inverted = false }: { inverted?: boolean }) {
+export function LogoMark() {
   return (
-    <span
-      className={`inline-flex h-8 w-8 items-center justify-center rounded-md text-sm font-bold ${
-        inverted ? "bg-white text-forest-900" : "bg-forest-900 text-white"
-      }`}
-    >
-      SH
-    </span>
+    <Image
+      src="/brand/mark.png"
+      alt="Storage Hunters mascot"
+      width={40}
+      height={40}
+      className="h-10 w-10 rounded-full"
+    />
   );
 }
 
@@ -63,13 +65,13 @@ export function SiteFooter() {
         <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
             <p className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-white">
-              <LogoMark inverted />
+              <LogoMark />
               <span>
                 Storage <span className="text-blaze-500">Hunters</span>
               </span>
             </p>
-            <p className="max-w-xs text-sm leading-6 text-forest-200/70">
-              Smarter self-storage acquisitions, from first call to closing.
+            <p className="max-w-xs text-sm leading-6 text-khaki-300/80">
+              We hunt storage deals. You profit.
             </p>
           </div>
           <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-forest-200/80">
