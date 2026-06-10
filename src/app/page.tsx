@@ -161,46 +161,37 @@ export default function Home() {
             }}
             aria-hidden="true"
           />
-          <div className="relative mx-auto w-full max-w-6xl px-6 py-16 text-center sm:py-20">
+          <div className="relative mx-auto w-full max-w-6xl px-6 py-14 text-center sm:py-16">
             <Image
               src="/brand/logo-hero.png"
               alt="Storage Hunters"
               width={300}
               height={300}
               priority
-              className="animate-fade-up mx-auto mb-8 h-56 w-auto drop-shadow-2xl sm:h-72"
+              className="animate-fade-up mx-auto mb-6 h-40 w-auto drop-shadow-2xl sm:h-48"
             />
-            <p className="animate-fade-up mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blaze-500">
-              Self-Storage Acquisition Platform
-            </p>
-            <h1 className="animate-fade-up mx-auto max-w-4xl text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Find Better Self-Storage Deals.{" "}
-              <span className="text-blaze-600">Underwrite Smarter.</span> Buy
-              With Confidence.
+            <h1 className="animate-fade-up mx-auto max-w-2xl text-2xl font-bold tracking-tight text-white sm:text-4xl">
+              Find Better <span className="text-blaze-600">Self-Storage</span>{" "}
+              Deals
             </h1>
-            <p className="animate-fade-up animation-delay-150 mx-auto mt-6 max-w-2xl text-lg leading-8 text-khaki-200/90">
-              Storage Hunters helps first-time buyers, private investors, and
-              operators evaluate self-storage opportunities, define their buy
-              box, and move from deal search to closing.
+            <p className="animate-fade-up animation-delay-150 mx-auto mt-4 max-w-md text-base leading-7 text-khaki-200/80">
+              Buy-side support for storage investors — from deal search to
+              closing.
             </p>
-            <div className="animate-fade-up animation-delay-300 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="animate-fade-up animation-delay-300 mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/intake"
-                className="inline-block rounded-md bg-blaze-600 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-forest-950/40 transition-all hover:-translate-y-0.5 hover:bg-blaze-500 hover:shadow-xl"
+                className="inline-block rounded-md bg-blaze-600 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white shadow-lg shadow-forest-950/40 transition-all hover:-translate-y-0.5 hover:bg-blaze-500 hover:shadow-xl"
               >
-                Submit Your Buyer Profile
+                Submit Buyer Profile
               </Link>
               <Link
                 href="/free-checklist"
-                className="inline-block rounded-md border border-white/30 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
+                className="inline-block rounded-md border border-white/30 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
               >
-                Free Underwriting Checklist
+                Free Checklist
               </Link>
             </div>
-            <p className="animate-fade-up animation-delay-300 mx-auto mt-8 max-w-xl text-sm leading-6 text-khaki-200/70">
-              Built by a self-storage investment sales broker with experience
-              underwriting hundreds of millions in commercial real estate.
-            </p>
           </div>
         </section>
 
