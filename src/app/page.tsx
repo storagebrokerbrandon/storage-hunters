@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
 const BOOKING_URL = "#book";
 const CALENDLY_URL =
@@ -129,23 +130,6 @@ const structuredData = {
   ],
 };
 
-const navLinks = [
-  { href: "#who", label: "Who It's For" },
-  { href: "#services", label: "What We Do" },
-  { href: "#process", label: "Process" },
-  { href: "#contact", label: "Contact" },
-];
-
-function LogoMark({ className }: { className?: string }) {
-  return (
-    <span
-      className={`inline-flex h-8 w-8 items-center justify-center rounded-md bg-navy-900 text-sm font-bold text-white ${className ?? ""}`}
-    >
-      SH
-    </span>
-  );
-}
-
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col bg-white text-foreground">
@@ -153,37 +137,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/95 shadow-sm shadow-navy-900/5 backdrop-blur">
-        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-          <a
-            href="#"
-            className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-navy-900"
-          >
-            <LogoMark />
-            <span>
-              Storage <span className="text-navy-600">Hunters</span>
-            </span>
-          </a>
-          <nav className="hidden items-center gap-8 text-sm font-medium text-navy-800 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-navy-600"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <a
-            href={BOOKING_URL}
-            className="rounded-md bg-navy-900 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-navy-700 hover:shadow-md"
-          >
-            Book a Call
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -385,53 +339,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-navy-100 bg-navy-950 py-12">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:justify-between">
-            <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
-              <p className="flex items-center gap-2.5 text-lg font-bold tracking-tight text-white">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white text-sm font-bold text-navy-900">
-                  SH
-                </span>
-                <span>
-                  Storage <span className="text-navy-200">Hunters</span>
-                </span>
-              </p>
-              <p className="max-w-xs text-sm leading-6 text-navy-200/70">
-                Smarter self-storage acquisitions, from first call to closing.
-              </p>
-            </div>
-            <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-navy-200/80">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="transition-colors hover:text-white"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href={BOOKING_URL}
-                className="font-semibold text-white transition-colors hover:text-navy-200"
-              >
-                Book a Call
-              </a>
-            </nav>
-          </div>
-          <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-8 text-center">
-            <p className="text-sm text-navy-200/80">
-              &copy; {new Date().getFullYear()} Storage Hunters. All rights
-              reserved.
-            </p>
-            <p className="max-w-xl text-xs leading-5 text-navy-200/60">
-              Storage Hunters is an independent platform and is not affiliated
-              with RIPCO Self Storage.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
