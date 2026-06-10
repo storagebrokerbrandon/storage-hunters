@@ -1,0 +1,21 @@
+I'm building JoinStorageHunters.com — a landing page for my self-storage acquisition advisory business, "Storage Hunters." The attached zip is the current working code. Stack: Next.js 16 (App Router) + Tailwind CSS 4 + TypeScript.
+
+CURRENT STATE (v1 is complete, builds and lints clean):
+- The whole site is one page: src/app/page.tsx
+- Sections, in order:
+  1. Sticky header with anchor nav + "Book a Call" button
+  2. Hero: "Looking to Buy Self-Storage?" with a "Book a Free Acquisition Call" CTA
+  3. Who This Is For: 4 cards (First-Time Buyers, Existing Operators, Private Investors, Family Offices)
+  4. What We Help With: 5 cards (Deal Underwriting, Market Selection, Financing Assumptions, Acquisition Strategy, Buy-Side Representation)
+  5. Process: 4 numbered steps (Schedule a Call, Define Your Buy Box, Review Opportunities, Execute with Confidence)
+  6. Live Calendly inline embed (https://calendly.com/storagebrokerbrandon/storage-hunters-acquisition-call) in a dark navy section with id="book" — loaded via next/script with lazyOnload
+  7. Contact: "Prefer email? Reach me at storagebrokerbrandon@gmail.com"
+  8. Footer with disclaimer: "Storage Hunters is an independent platform and is not affiliated with RIPCO Self Storage." — KEEP THIS DISCLAIMER.
+- Every "Book a Call" / "Book a Free Acquisition Call" button links to #book and smooth-scrolls to the Calendly section (scroll-behavior: smooth is set in globals.css).
+- Design system: white background, institutional dark-blue palette. Custom colors navy-50 through navy-950 are defined in src/app/globals.css using Tailwind 4's @theme block. Fonts are Geist/Geist Mono via next/font in src/app/layout.tsx, where the page metadata is also set.
+- DO NOT change the existing design, colors, or section structure unless I explicitly ask.
+
+TO RUN LOCALLY: npm install, then npm run dev (or npm run build to verify it compiles).
+
+WHAT I WANT TO DO NEXT:
+[describe your next feature/change here]
