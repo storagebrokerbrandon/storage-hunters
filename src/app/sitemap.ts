@@ -29,5 +29,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
+    ...[
+      "first-time-buyers",
+      "existing-operators",
+      "private-investors",
+      "family-offices",
+    ].map((slug) => ({
+      url: `${BASE}/for/${slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   ];
 }

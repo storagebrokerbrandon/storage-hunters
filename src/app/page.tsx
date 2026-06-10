@@ -30,24 +30,28 @@ function CardIcon({ path }: { path: string }) {
 const audiences = [
   {
     title: "First-Time Buyers",
+    href: "/for/first-time-buyers",
     description:
       "Enter the asset class with a clear framework for evaluating your first facility.",
     icon: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M19 8v6 M22 11h-6",
   },
   {
     title: "Existing Operators",
+    href: "/for/existing-operators",
     description:
       "Expand your portfolio with disciplined underwriting and market intelligence.",
     icon: "M3 21h18 M5 21V7l7-4 7 4v14 M9 9h1 M9 13h1 M9 17h1 M14 9h1 M14 13h1 M14 17h1",
   },
   {
     title: "Private Investors",
+    href: "/for/private-investors",
     description:
       "Deploy capital into self-storage with institutional-grade acquisition support.",
     icon: "M12 1v22 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6",
   },
   {
     title: "Family Offices",
+    href: "/for/family-offices",
     description:
       "Build long-term storage allocations backed by rigorous deal analysis.",
     icon: "M3 21h18 M4 21V10l8-6 8 6v11 M9 21v-6a3 3 0 0 1 6 0v6",
@@ -201,18 +205,22 @@ export default function Home() {
             </h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {audiences.map((audience) => (
-                <div
+                <Link
                   key={audience.title}
-                  className="rounded-lg border border-forest-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-forest-200 hover:shadow-lg hover:shadow-forest-900/10"
+                  href={audience.href}
+                  className="group rounded-lg border border-forest-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-blaze-600/40 hover:shadow-lg hover:shadow-forest-900/10"
                 >
                   <CardIcon path={audience.icon} />
-                  <h3 className="text-lg font-semibold text-forest-900">
+                  <h3 className="text-lg font-semibold text-forest-900 group-hover:text-blaze-700">
                     {audience.title}
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-forest-800/70">
                     {audience.description}
                   </p>
-                </div>
+                  <p className="mt-4 text-sm font-semibold text-blaze-600">
+                    Learn more &rarr;
+                  </p>
+                </Link>
               ))}
             </div>
           </div>
@@ -249,6 +257,30 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Photo CTA band */}
+        <section className="relative overflow-hidden bg-forest-950">
+          <Image
+            src="/photos/units-corridor.jpg"
+            alt="Self-storage facility interior with rows of storage units"
+            fill
+            className="object-cover opacity-25"
+          />
+          <div className="relative mx-auto w-full max-w-6xl px-6 py-20 text-center sm:py-24">
+            <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Your next facility is out there.
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-khaki-200/90">
+              Let&apos;s define your buy box and go hunt it down.
+            </p>
+            <a
+              href={BOOKING_URL}
+              className="mt-8 inline-block rounded-md bg-blaze-600 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-blaze-500"
+            >
+              Book a Free Acquisition Call
+            </a>
+          </div>
+        </section>
+
         {/* Process */}
         <section id="process" className="scroll-mt-16 py-20 sm:py-24">
           <div className="mx-auto w-full max-w-6xl px-6">
@@ -278,6 +310,14 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="mt-14 text-center">
+              <a
+                href={BOOKING_URL}
+                className="inline-block rounded-md bg-blaze-600 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-blaze-500"
+              >
+                Start with Step 1 — Book Your Call
+              </a>
             </div>
           </div>
         </section>
