@@ -8,7 +8,7 @@ const CONTACT_EMAIL = "storagebrokerbrandon@gmail.com";
 
 function CardIcon({ path }: { path: string }) {
   return (
-    <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-navy-50 text-navy-600">
+    <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-forest-50 text-forest-600">
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -141,12 +141,12 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden border-b border-navy-100 bg-gradient-to-b from-navy-50 to-white">
+        <section className="relative overflow-hidden border-b border-forest-800 bg-gradient-to-b from-forest-950 to-forest-900">
           <div
             className="pointer-events-none absolute inset-0"
             style={{
               backgroundImage:
-                "linear-gradient(to right, rgba(10,34,64,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(10,34,64,0.05) 1px, transparent 1px)",
+                "linear-gradient(to right, rgba(195,176,139,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(195,176,139,0.07) 1px, transparent 1px)",
               backgroundSize: "44px 44px",
               maskImage:
                 "radial-gradient(ellipse 80% 70% at 50% 30%, black, transparent)",
@@ -154,13 +154,14 @@ export default function Home() {
             aria-hidden="true"
           />
           <div className="relative mx-auto w-full max-w-6xl px-6 py-24 text-center sm:py-32">
-            <p className="animate-fade-up mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-navy-600">
+            <p className="animate-fade-up mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blaze-500">
               Self-Storage Acquisition Advisory
             </p>
-            <h1 className="animate-fade-up mx-auto max-w-3xl text-4xl font-bold tracking-tight text-navy-900 sm:text-5xl lg:text-6xl">
-              Looking to Buy Self-Storage?
+            <h1 className="animate-fade-up mx-auto max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Looking to Buy{" "}
+              <span className="text-blaze-600">Self-Storage?</span>
             </h1>
-            <p className="animate-fade-up animation-delay-150 mx-auto mt-6 max-w-2xl text-lg leading-8 text-navy-800/80">
+            <p className="animate-fade-up animation-delay-150 mx-auto mt-6 max-w-2xl text-lg leading-8 text-khaki-200/90">
               Storage Hunters helps investors identify opportunities, evaluate
               markets, underwrite deals, and build smarter acquisition
               strategies.
@@ -168,11 +169,11 @@ export default function Home() {
             <div className="animate-fade-up animation-delay-300 mt-10 flex flex-col items-center gap-4">
               <a
                 href={BOOKING_URL}
-                className="inline-block rounded-md bg-navy-900 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-navy-900/20 transition-all hover:-translate-y-0.5 hover:bg-navy-700 hover:shadow-xl hover:shadow-navy-900/25"
+                className="inline-block rounded-md bg-blaze-600 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-forest-950/40 transition-all hover:-translate-y-0.5 hover:bg-blaze-500 hover:shadow-xl"
               >
                 Book a Free Acquisition Call
               </a>
-              <p className="text-sm text-navy-800/60">
+              <p className="text-sm text-khaki-200/70">
                 Free 30-minute call &middot; No obligation
               </p>
             </div>
@@ -182,23 +183,23 @@ export default function Home() {
         {/* Who This Is For */}
         <section id="who" className="scroll-mt-16 py-20 sm:py-24">
           <div className="mx-auto w-full max-w-6xl px-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-navy-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blaze-600">
               Who This Is For
             </p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-forest-900 sm:text-4xl">
               Built for serious self-storage buyers
             </h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {audiences.map((audience) => (
                 <div
                   key={audience.title}
-                  className="rounded-lg border border-navy-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-navy-200 hover:shadow-lg hover:shadow-navy-900/10"
+                  className="rounded-lg border border-forest-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-forest-200 hover:shadow-lg hover:shadow-forest-900/10"
                 >
                   <CardIcon path={audience.icon} />
-                  <h3 className="text-lg font-semibold text-navy-900">
+                  <h3 className="text-lg font-semibold text-forest-900">
                     {audience.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-navy-800/70">
+                  <p className="mt-3 text-sm leading-6 text-forest-800/70">
                     {audience.description}
                   </p>
                 </div>
@@ -210,26 +211,26 @@ export default function Home() {
         {/* What We Help With */}
         <section
           id="services"
-          className="scroll-mt-16 border-y border-navy-100 bg-navy-50/50 py-20 sm:py-24"
+          className="scroll-mt-16 border-y border-forest-100 bg-forest-50/50 py-20 sm:py-24"
         >
           <div className="mx-auto w-full max-w-6xl px-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-navy-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blaze-600">
               What We Help With
             </p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-forest-900 sm:text-4xl">
               Acquisition support across the full deal lifecycle
             </h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
                 <div
                   key={service.title}
-                  className="rounded-lg border border-navy-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-navy-200 hover:shadow-lg hover:shadow-navy-900/10"
+                  className="rounded-lg border border-forest-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-forest-200 hover:shadow-lg hover:shadow-forest-900/10"
                 >
                   <CardIcon path={service.icon} />
-                  <h3 className="text-lg font-semibold text-navy-900">
+                  <h3 className="text-lg font-semibold text-forest-900">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-navy-800/70">
+                  <p className="mt-3 text-sm leading-6 text-forest-800/70">
                     {service.description}
                   </p>
                 </div>
@@ -241,27 +242,27 @@ export default function Home() {
         {/* Process */}
         <section id="process" className="scroll-mt-16 py-20 sm:py-24">
           <div className="mx-auto w-full max-w-6xl px-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-navy-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blaze-600">
               Our Process
             </p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-forest-900 sm:text-4xl">
               A disciplined path from strategy to closing
             </h2>
             <div className="relative mt-12">
               <div
-                className="absolute left-0 right-0 top-6 hidden h-px bg-navy-100 lg:block"
+                className="absolute left-0 right-0 top-6 hidden h-px bg-forest-100 lg:block"
                 aria-hidden="true"
               />
               <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
                 {processSteps.map((step) => (
                   <div key={step.step} className="relative">
-                    <div className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-navy-900 bg-white text-lg font-bold text-navy-900">
+                    <div className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-forest-900 bg-white text-lg font-bold text-forest-900">
                       {step.step}
                     </div>
-                    <h3 className="mt-5 text-lg font-semibold text-navy-900">
+                    <h3 className="mt-5 text-lg font-semibold text-forest-900">
                       {step.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-6 text-navy-800/70">
+                    <p className="mt-3 text-sm leading-6 text-forest-800/70">
                       {step.description}
                     </p>
                   </div>
@@ -274,7 +275,7 @@ export default function Home() {
         {/* Calendly */}
         <section
           id="book"
-          className="relative scroll-mt-16 overflow-hidden border-y border-navy-100 bg-navy-900 py-20 sm:py-24"
+          className="relative scroll-mt-16 overflow-hidden border-y border-forest-100 bg-forest-900 py-20 sm:py-24"
         >
           <div
             className="pointer-events-none absolute inset-0"
@@ -287,20 +288,20 @@ export default function Home() {
           />
           <div className="relative mx-auto w-full max-w-6xl px-6">
             <div className="text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-navy-200">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-khaki-300">
                 Get Started
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Book a Free Acquisition Call
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-navy-100/80">
+              <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-forest-100/80">
                 Pick a time that works for you. We&apos;ll discuss your goals
                 and map out your acquisition strategy.
               </p>
             </div>
             <div
               id="calendly-embed"
-              className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-lg bg-white shadow-2xl shadow-navy-950/40"
+              className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-lg bg-white shadow-2xl shadow-forest-950/40"
             >
               <div
                 className="calendly-inline-widget"
@@ -319,17 +320,17 @@ export default function Home() {
         <section id="contact" className="scroll-mt-16 py-20 sm:py-24">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-navy-600">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blaze-600">
                 Contact
               </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-forest-900 sm:text-4xl">
                 Have a question first?
               </h2>
-              <p className="mt-6 text-lg leading-8 text-navy-800/80">
+              <p className="mt-6 text-lg leading-8 text-forest-800/80">
                 Prefer email? Reach me at{" "}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="font-semibold text-navy-600 underline-offset-4 hover:underline"
+                  className="font-semibold text-forest-600 underline-offset-4 hover:underline"
                 >
                   {CONTACT_EMAIL}
                 </a>

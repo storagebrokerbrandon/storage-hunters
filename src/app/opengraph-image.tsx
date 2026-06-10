@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt =
-  "Storage Hunters — Self-Storage Acquisition Strategy";
+export const alt = "Storage Hunters — Self-Storage Acquisition Strategy";
 export const size = {
   width: 1200,
   height: 630,
@@ -19,35 +18,53 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0a2240",
+          backgroundColor: "#1e2a1e",
           color: "#ffffff",
           fontFamily: "Arial, Helvetica, sans-serif",
         }}
       >
         <div
           style={{
-            fontSize: 28,
-            letterSpacing: 8,
+            fontSize: 26,
+            letterSpacing: 10,
             textTransform: "uppercase",
-            color: "#b9cbe0",
-            marginBottom: 24,
+            color: "#c3b08b",
+            marginBottom: 28,
           }}
         >
           Self-Storage Acquisition Advisory
         </div>
         <div
           style={{
-            fontSize: 88,
+            display: "flex",
+            gap: 24,
+            fontSize: 92,
             fontWeight: 700,
-            marginBottom: 32,
+            textTransform: "uppercase",
+            letterSpacing: 2,
+            marginBottom: 28,
           }}
         >
-          Storage Hunters
+          <span style={{ color: "#c3b08b" }}>Storage</span>
+          <span style={{ color: "#ff6a00" }}>Hunters</span>
         </div>
+        <svg
+          width="56"
+          height="56"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#c3b08b"
+          strokeWidth="1.5"
+        >
+          <circle cx="12" cy="12" r="7" />
+          <path d="M12 1v5 M12 18v5 M1 12h5 M18 12h5" />
+          <circle cx="12" cy="12" r="1.5" fill="#ff6a00" stroke="none" />
+        </svg>
         <div
           style={{
-            fontSize: 32,
-            color: "#dce5f0",
+            marginTop: 28,
+            fontSize: 30,
+            color: "#e6e9dc",
             maxWidth: 900,
             textAlign: "center",
           }}
@@ -56,9 +73,9 @@ export default function OpenGraphImage() {
         </div>
         <div
           style={{
-            marginTop: 48,
+            marginTop: 36,
             fontSize: 26,
-            color: "#b9cbe0",
+            color: "#c3b08b",
           }}
         >
           joinstoragehunters.com

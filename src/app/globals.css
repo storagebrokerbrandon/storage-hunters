@@ -2,22 +2,28 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1a2332;
+  --foreground: #20281c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-navy-50: #f0f4f9;
-  --color-navy-100: #dce5f0;
-  --color-navy-200: #b9cbe0;
-  --color-navy-600: #1f4e79;
-  --color-navy-700: #173e63;
-  --color-navy-800: #102e4c;
-  --color-navy-900: #0a2240;
-  --color-navy-950: #061730;
+  --color-forest-50: #f4f5ef;
+  --color-forest-100: #e6e9dc;
+  --color-forest-200: #c8d0b4;
+  --color-forest-600: #4a5a3a;
+  --color-forest-700: #3a4830;
+  --color-forest-800: #2b3724;
+  --color-forest-900: #1e2a1e;
+  --color-forest-950: #141c14;
+  --color-blaze-500: #ff7d1f;
+  --color-blaze-600: #ff6a00;
+  --color-blaze-700: #d65800;
+  --color-khaki-200: #d9cfb4;
+  --color-khaki-300: #c3b08b;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-oswald);
 }
 
 body {
@@ -26,12 +32,20 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-oswald), var(--font-geist-sans), Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 ::selection {
-  background: #1f4e79;
+  background: #ff6a00;
   color: #ffffff;
 }
 
