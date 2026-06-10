@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Image from "next/image";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
 const BOOKING_URL = "#book";
@@ -153,7 +154,15 @@ export default function Home() {
             }}
             aria-hidden="true"
           />
-          <div className="relative mx-auto w-full max-w-6xl px-6 py-24 text-center sm:py-32">
+          <div className="relative mx-auto w-full max-w-6xl px-6 py-16 text-center sm:py-20">
+            <Image
+              src="/brand/logo-hero.png"
+              alt="Storage Hunters"
+              width={300}
+              height={300}
+              priority
+              className="animate-fade-up mx-auto mb-8 h-56 w-auto drop-shadow-2xl sm:h-72"
+            />
             <p className="animate-fade-up mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blaze-500">
               Self-Storage Acquisition Advisory
             </p>
