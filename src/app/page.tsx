@@ -83,6 +83,24 @@ const processSteps = [
   },
 ];
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Storage Hunters",
+  url: "https://www.joinstoragehunters.com",
+  email: CONTACT_EMAIL,
+  description:
+    "Storage Hunters helps investors identify self-storage opportunities, evaluate markets, underwrite deals, and build smarter acquisition strategies.",
+  areaServed: "United States",
+  serviceType: [
+    "Deal Underwriting",
+    "Market Selection",
+    "Financing Assumptions",
+    "Acquisition Strategy",
+    "Buy-Side Representation",
+  ],
+};
+
 const navLinks = [
   { href: "#who", label: "Who It's For" },
   { href: "#services", label: "What We Do" },
@@ -93,6 +111,10 @@ const navLinks = [
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col bg-white text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/95 backdrop-blur">
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
