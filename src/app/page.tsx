@@ -2,6 +2,8 @@ import Script from "next/script";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { LeadCaptureForm } from "@/components/lead-capture-form";
+import { CTAButton } from "@/components/cta-button";
 
 const BOOKING_URL = "#book";
 const CALENDLY_URL =
@@ -169,28 +171,36 @@ export default function Home() {
               className="animate-fade-up mx-auto mb-8 h-56 w-auto drop-shadow-2xl sm:h-72"
             />
             <p className="animate-fade-up mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-blaze-500">
-              Self-Storage Acquisition Advisory
+              Self-Storage Acquisition Platform
             </p>
-            <h1 className="animate-fade-up mx-auto max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Looking to Buy{" "}
-              <span className="text-blaze-600">Self-Storage?</span>
+            <h1 className="animate-fade-up mx-auto max-w-4xl text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Find Better Self-Storage Deals.{" "}
+              <span className="text-blaze-600">Underwrite Smarter.</span> Buy
+              With Confidence.
             </h1>
             <p className="animate-fade-up animation-delay-150 mx-auto mt-6 max-w-2xl text-lg leading-8 text-khaki-200/90">
-              Storage Hunters helps investors identify opportunities, evaluate
-              markets, underwrite deals, and build smarter acquisition
-              strategies.
+              Storage Hunters helps first-time buyers, private investors, and
+              operators evaluate self-storage opportunities, define their buy
+              box, and move from deal search to closing.
             </p>
-            <div className="animate-fade-up animation-delay-300 mt-10 flex flex-col items-center gap-4">
-              <a
-                href={BOOKING_URL}
+            <div className="animate-fade-up animation-delay-300 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/intake"
                 className="inline-block rounded-md bg-blaze-600 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white shadow-lg shadow-forest-950/40 transition-all hover:-translate-y-0.5 hover:bg-blaze-500 hover:shadow-xl"
               >
-                Book a Free Acquisition Call
-              </a>
-              <p className="text-sm text-khaki-200/70">
-                Free 30-minute call &middot; No obligation
-              </p>
+                Submit Your Buyer Profile
+              </Link>
+              <Link
+                href="/free-checklist"
+                className="inline-block rounded-md border border-white/30 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
+              >
+                Free Underwriting Checklist
+              </Link>
             </div>
+            <p className="animate-fade-up animation-delay-300 mx-auto mt-8 max-w-xl text-sm leading-6 text-khaki-200/70">
+              Built by a self-storage investment sales broker with experience
+              underwriting hundreds of millions in commercial real estate.
+            </p>
           </div>
         </section>
 
@@ -251,6 +261,105 @@ export default function Home() {
                   <p className="mt-3 text-sm leading-6 text-forest-800/70">
                     {service.description}
                   </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Lead magnet */}
+        <section className="py-20 sm:py-24">
+          <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blaze-600">
+                Free Download
+              </p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-forest-900 sm:text-4xl">
+                Free Self-Storage Underwriting Checklist
+              </h2>
+              <p className="mt-4 leading-7 text-forest-800/80">
+                Before you make an offer, know what to check: rent roll, T-12,
+                taxes, insurance, occupancy, unit mix, market supply, expansion
+                upside, and debt assumptions.
+              </p>
+              <p className="mt-4 leading-7 text-forest-800/80">
+                Kill bad deals faster. Know what to offer on the good ones.
+              </p>
+            </div>
+            <LeadCaptureForm
+              leadType="checklist_lead"
+              trackName="checklist_downloaded"
+              fields={["phone", "buyerType", "markets"]}
+              submitLabel="Get the Free Checklist"
+              successTitle="You're in. Here's your checklist."
+              successBody="Open it below — bookmark it, print it, and run it on every deal before you write an offer."
+              successChildren={
+                <CTAButton
+                  href="/resources/underwriting-checklist"
+                  event="open_checklist"
+                >
+                  Open the Checklist
+                </CTAButton>
+              }
+            />
+          </div>
+        </section>
+
+        {/* Choose Your Hunting Lane */}
+        <section className="border-y border-forest-100 bg-forest-50/50 py-20 sm:py-24">
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blaze-600">
+              Pick Your Path
+            </p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-forest-900 sm:text-4xl">
+              Choose Your Hunting Lane
+            </h2>
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+              {[
+                {
+                  title: "Free Buyer Profile",
+                  description:
+                    "For serious buyers who want deal flow and acquisition support. Define your buy box and get on the list.",
+                  cta: "Submit Buyer Profile",
+                  href: "/intake",
+                  event: "lane_buyer_profile",
+                },
+                {
+                  title: "Storage Hunters Pro",
+                  description:
+                    "Monthly investor membership: templates, market breakdowns, deal reviews, and member-only resources.",
+                  cta: "Join the Waitlist",
+                  href: "/pro",
+                  event: "lane_pro",
+                },
+                {
+                  title: "Deal Review",
+                  description:
+                    "Already have a deal? Send it over and we'll stress-test the numbers before you make an offer.",
+                  cta: "Request Deal Review",
+                  href: "/deal-review",
+                  event: "lane_deal_review",
+                },
+              ].map((lane) => (
+                <div
+                  key={lane.title}
+                  className="flex flex-col rounded-lg border border-forest-100 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-forest-900/10"
+                >
+                  <h3 className="text-xl font-semibold text-forest-900">
+                    {lane.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-forest-800/70">
+                    {lane.description}
+                  </p>
+                  <div className="mt-6">
+                    <CTAButton
+                      href={lane.href}
+                      event={lane.event}
+                      className="w-full text-center"
+                    >
+                      {lane.cta}
+                    </CTAButton>
+                  </div>
                 </div>
               ))}
             </div>
@@ -342,11 +451,13 @@ export default function Home() {
                 Get Started
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Book a Free Acquisition Call
+                Looking to Acquire Self-Storage?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-forest-100/80">
-                Pick a time that works for you. We&apos;ll discuss your goals
-                and map out your acquisition strategy.
+                If you&apos;re actively looking to buy, Storage Hunters can
+                help define your buy box, review opportunities, evaluate
+                markets, and support you through the acquisition process. Book
+                a free call below.
               </p>
             </div>
             <div

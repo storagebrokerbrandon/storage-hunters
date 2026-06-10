@@ -5,10 +5,10 @@ const BOOKING_URL = "/#book";
 
 export const navLinks = [
   { href: "/#who", label: "Who It's For" },
-  { href: "/#services", label: "What We Do" },
-  { href: "/#process", label: "Process" },
   { href: "/resources", label: "Resources" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/pro", label: "Pro" },
+  { href: "/deal-review", label: "Deal Review" },
+  { href: "/intake", label: "Buyer Intake" },
 ];
 
 export function LogoMark() {
@@ -99,7 +99,8 @@ export function SiteFooter() {
           </p>
           <p className="max-w-xl text-xs leading-5 text-forest-200/60">
             Storage Hunters is an independent platform and is not affiliated
-            with RIPCO Self Storage.
+            with RIPCO Self Storage. Nothing on this site is financial, legal,
+            or tax advice.
           </p>
         </div>
       </div>

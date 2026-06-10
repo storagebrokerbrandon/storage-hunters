@@ -2,12 +2,96 @@
 
 import { useState } from "react";
 import Link from "next/link";
-
-const inputClass =
-  "w-full rounded-md border border-forest-200 bg-white px-3 py-2.5 text-sm text-forest-900 outline-none transition-colors focus:border-blaze-600";
-const labelClass = "mb-1.5 block text-sm font-medium text-forest-900";
+import { trackEvent } from "@/lib/track";
+import {
+  inputClass,
+  labelClass,
+  BUYER_TYPES,
+  BUDGET_RANGES,
+} from "@/components/lead-capture-form";
 
 const CONTACT_EMAIL = "storagebrokerbrandon@gmail.com";
+
+const selectFields = [
+  {
+    name: "buyerType",
+    label: "Buyer type",
+    options: BUYER_TYPES,
+  },
+  {
+    name: "facilitySize",
+    label: "Target facility size",
+    options: [
+      "Under 20,000 NRSF",
+      "20,000 – 50,000 NRSF",
+      "50,000 – 100,000 NRSF",
+      "100,000+ NRSF",
+      "Portfolio / multiple facilities",
+    ],
+  },
+  {
+    name: "budget",
+    label: "Acquisition budget",
+    options: BUDGET_RANGES,
+  },
+  {
+    name: "equity",
+    label: "Equity available",
+    options: [
+      "Under $100K",
+      "$100K – $250K",
+      "$250K – $500K",
+      "$500K – $1M",
+      "$1M+",
+    ],
+  },
+  {
+    name: "financingStatus",
+    label: "Financing status",
+    options: [
+      "Cash buyer",
+      "Pre-approved / lender lined up",
+      "Exploring financing options",
+      "Need financing guidance",
+    ],
+  },
+  {
+    name: "timeline",
+    label: "Timeline to buy",
+    options: ["0–3 months", "3–6 months", "6–12 months", "12+ months"],
+  },
+  {
+    name: "dealType",
+    label: "Preferred deal type",
+    options: [
+      "Stabilized",
+      "Value-add",
+      "Expansion",
+      "Conversion",
+      "Boat / RV storage",
+      "Climate-controlled",
+      "Open to anything",
+    ],
+  },
+  {
+    name: "firstTimeBuyer",
+    label: "First-time buyer?",
+    options: ["yes", "no"],
+    optionLabels: ["Yes", "No"],
+  },
+  {
+    name: "openToRep",
+    label: "Open to buy-side representation?",
+    options: ["yes", "no", "maybe"],
+    optionLabels: ["Yes", "No", "Tell me more first"],
+  },
+  {
+    name: "interestedPro",
+    label: "Interested in Storage Hunters Pro?",
+    options: ["yes", "no"],
+    optionLabels: ["Yes — add me to the waitlist", "Not right now"],
+  },
+];
 
 export function IntakeForm() {
   const [status, setStatus] = useState<
@@ -24,9 +108,14 @@ export function IntakeForm() {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          leadType: "buyer_profile",
+          sourcePage: window.location.pathname,
+        }),
       });
       if (res.ok) {
+        trackEvent("buyer_profile_submitted");
         setStatus("success");
         form.reset();
       } else {
@@ -127,62 +216,21 @@ export function IntakeForm() {
             placeholder="e.g. TX, FL, NC"
           />
         </div>
-        <div>
-          <label htmlFor="budget" className={labelClass}>
-            Acquisition budget
-          </label>
-          <select id="budget" name="budget" className={inputClass}>
-            <option value="">Select a range</option>
-            <option>Under $500K</option>
-            <option>$500K – $1M</option>
-            <option>$1M – $3M</option>
-            <option>$3M – $10M</option>
-            <option>$10M+</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="equity" className={labelClass}>
-            Equity available
-          </label>
-          <select id="equity" name="equity" className={inputClass}>
-            <option value="">Select a range</option>
-            <option>Under $100K</option>
-            <option>$100K – $250K</option>
-            <option>$250K – $500K</option>
-            <option>$500K – $1M</option>
-            <option>$1M+</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="financingStatus" className={labelClass}>
-            Financing status
-          </label>
-          <select
-            id="financingStatus"
-            name="financingStatus"
-            className={inputClass}
-          >
-            <option value="">Select one</option>
-            <option>Cash buyer</option>
-            <option>Pre-approved / lender lined up</option>
-            <option>Exploring financing options</option>
-            <option>Need financing guidance</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="firstTimeBuyer" className={labelClass}>
-            First-time buyer?
-          </label>
-          <select
-            id="firstTimeBuyer"
-            name="firstTimeBuyer"
-            className={inputClass}
-          >
-            <option value="">Select one</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-        </div>
+        {selectFields.map((field) => (
+          <div key={field.name}>
+            <label htmlFor={field.name} className={labelClass}>
+              {field.label}
+            </label>
+            <select id={field.name} name={field.name} className={inputClass}>
+              <option value="">Select one</option>
+              {field.options.map((opt, i) => (
+                <option key={opt} value={opt}>
+                  {field.optionLabels?.[i] ?? opt}
+                </option>
+              ))}
+            </select>
+          </div>
+        ))}
         <div className="sm:col-span-2">
           <label htmlFor="notes" className={labelClass}>
             Notes
@@ -195,7 +243,6 @@ export function IntakeForm() {
             placeholder="Anything else about your goals, timeline, or experience"
           />
         </div>
-        {/* Honeypot — hidden from real users */}
         <input
           type="text"
           name="company"
