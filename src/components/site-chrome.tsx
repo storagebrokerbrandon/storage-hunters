@@ -98,9 +98,7 @@ export function SiteFooter() {
             reserved.
           </p>
           <p className="max-w-xl text-xs leading-5 text-forest-200/60">
-            Storage Hunters is an independent platform and is not affiliated
-            with RIPCO Self Storage. Nothing on this site is financial, legal,
-            or tax advice.
+            Nothing on this site is financial, legal, or tax advice.
           </p>
         </div>
       </div>
