@@ -98,7 +98,10 @@ export function SiteFooter() {
             reserved.
           </p>
           <p className="max-w-xl text-xs leading-5 text-forest-200/60">
-            Nothing on this site is financial, legal, or tax advice.
+            Nothing on this site is financial, legal, or tax advice.{" "}
+            <Link href="/terms" className="underline hover:text-white">
+              Terms &amp; Refunds
+            </Link>
           </p>
         </div>
       </div>

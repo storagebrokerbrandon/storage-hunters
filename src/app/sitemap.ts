@@ -6,7 +6,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   return [
     { url: BASE, lastModified, changeFrequency: "monthly", priority: 1 },
-    ...["intake", "free-checklist", "free-model", "pro", "deal-review"].map(
+    ...[
+      "intake",
+      "free-checklist",
+      "free-model",
+      "pro",
+      "deal-review",
+      "terms",
+    ].map(
       (slug) => ({
         url: `${BASE}/${slug}`,
         lastModified,
