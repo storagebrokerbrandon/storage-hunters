@@ -1,5 +1,6 @@
 import Script from "next/script";
 import Image from "next/image";
+import Link from "next/link";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
 const BOOKING_URL = "#book";
@@ -343,6 +344,15 @@ export default function Home() {
                 >
                   {CONTACT_EMAIL}
                 </a>
+              </p>
+              <p className="mt-4 text-base leading-7 text-forest-800/70">
+                Serious about buying?{" "}
+                <Link
+                  href="/intake"
+                  className="font-semibold text-blaze-600 underline-offset-4 hover:underline"
+                >
+                  Submit your buyer profile &rarr;
+                </Link>
               </p>
             </div>
           </div>

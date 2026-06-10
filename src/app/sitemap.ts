@@ -7,6 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: BASE, lastModified, changeFrequency: "monthly", priority: 1 },
     {
+      url: `${BASE}/intake`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
       url: `${BASE}/resources`,
       lastModified,
       changeFrequency: "monthly",
