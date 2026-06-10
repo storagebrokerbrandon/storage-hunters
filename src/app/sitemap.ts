@@ -6,12 +6,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   return [
     { url: BASE, lastModified, changeFrequency: "monthly", priority: 1 },
-    {
-      url: `${BASE}/intake`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
+    ...["intake", "free-checklist", "free-model", "pro", "deal-review"].map(
+      (slug) => ({
+        url: `${BASE}/${slug}`,
+        lastModified,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      })
+    ),
     {
       url: `${BASE}/resources`,
       lastModified,
@@ -23,6 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "deal-evaluation-framework",
       "market-analysis-framework",
       "acquisition-strategy-guide",
+      "how-to-value-a-self-storage-facility",
+      "cap-rates-explained",
+      "rent-roll-red-flags",
+      "t12-expense-normalization",
+      "boat-rv-storage-guide",
     ].map((slug) => ({
       url: `${BASE}/resources/${slug}`,
       lastModified,

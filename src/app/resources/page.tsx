@@ -1,38 +1,113 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { CTAButton } from "@/components/cta-button";
 
 export const metadata: Metadata = {
   title: "Self-Storage Investor Resources | Storage Hunters",
   description:
-    "Free self-storage investment resources: underwriting checklist, deal evaluation framework, market analysis framework, and acquisition strategy guide.",
+    "Free self-storage investing resources: underwriting checklists, valuation guides, cap rates, rent roll red flags, T-12 normalization, market analysis, and acquisition strategy.",
   alternates: { canonical: "/resources" },
 };
 
-const guides = [
+const resources = [
   {
     href: "/resources/underwriting-checklist",
     title: "Self-Storage Underwriting Checklist",
     description:
-      "Income verification, expense normalization, physical inspection, and debt stress-testing — everything to check before you buy.",
+      "Everything to verify before you buy: income, expenses, physical condition, market, and debt.",
+    cta: "Read the guide",
   },
   {
-    href: "/resources/deal-evaluation-framework",
-    title: "Deal Evaluation Framework",
+    href: "/resources/how-to-value-a-self-storage-facility",
+    title: "How to Value a Self-Storage Facility",
     description:
-      "A staged funnel for screening deals fast: kill bad ones in 10 minutes and spend real hours only on deals that earn them.",
+      "NOI, cap rates, price per square foot, and the adjustments that separate price from value.",
+    cta: "Read the guide",
+  },
+  {
+    href: "/resources/cap-rates-explained",
+    title: "Cap Rates Explained",
+    description:
+      "Going-in vs. stabilized vs. exit caps — and how sellers use pro forma cap rates against you.",
+    cta: "Read the guide",
+  },
+  {
+    href: "/resources/rent-roll-red-flags",
+    title: "Rent Roll Red Flags",
+    description:
+      "Phantom occupancy, concession games, delinquency landmines, and the bank-statement cross-check.",
+    cta: "Read the guide",
+  },
+  {
+    href: "/resources/t12-expense-normalization",
+    title: "T-12 Expense Normalization Guide",
+    description:
+      "Turn the seller's expenses into YOUR expenses: taxes, insurance, management, and the missing line items.",
+    cta: "Read the guide",
   },
   {
     href: "/resources/market-analysis-framework",
-    title: "Market Analysis Framework",
+    title: "Market Supply & Demand Analysis",
     description:
-      "Supply per capita, demand drivers, competitor shopping, and the new-supply pipeline — how to grade a market before the deal.",
+      "Square feet per capita explained, demand drivers, competitor shopping, and the new-supply pipeline.",
+    cta: "Read the guide",
+  },
+  {
+    href: "/resources/boat-rv-storage-guide",
+    title: "Boat & RV Storage Acquisition Guide",
+    description:
+      "The land business in a storage costume: product types, revenue per acre, and niche-specific risks.",
+    cta: "Read the guide",
+  },
+  {
+    href: "/for/first-time-buyers",
+    title: "First-Time Buyer Guide",
+    description:
+      "Why storage is a strong first commercial asset, where new buyers go wrong, and how to start.",
+    cta: "Read the guide",
+  },
+  {
+    href: "/resources/deal-evaluation-framework",
+    title: "Deal Screening Framework",
+    description:
+      "Kill bad deals in 10 minutes and spend real hours only on deals that earn them.",
+    cta: "Read the guide",
+  },
+  {
+    href: "/intake",
+    title: "Buy Box Builder",
+    description:
+      "Define your markets, budget, equity, and deal type — and get on the list for deals that match.",
+    cta: "Build your buy box",
   },
   {
     href: "/resources/acquisition-strategy-guide",
     title: "Acquisition Strategy Guide",
     description:
-      "Define your buy box, build a sourcing engine, run pipeline math, structure financing, and close with confidence.",
+      "Sourcing engine, pipeline math, offers, financing structures, and closing with confidence.",
+    cta: "Read the guide",
+  },
+];
+
+const tools = [
+  {
+    href: "/free-checklist",
+    event: "resources_checklist",
+    title: "Free Underwriting Checklist",
+    description: "The printable pre-offer checklist, sent to your inbox.",
+  },
+  {
+    href: "/free-model",
+    event: "resources_model",
+    title: "Free Starter Model",
+    description: "Estimate NOI, value, DSCR, and cash-on-cash in two minutes.",
+  },
+  {
+    href: "/deal-review",
+    event: "resources_deal_review",
+    title: "Deal Review",
+    description: "Have a live deal? We'll stress-test the numbers with you.",
   },
 ];
 
@@ -50,29 +125,49 @@ export default function ResourcesPage() {
               Learn how serious buyers evaluate self-storage
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-forest-800/80">
-              Free frameworks and checklists from the buy-side: how to
-              underwrite facilities, grade markets, and build an acquisition
-              strategy that actually closes deals.
+              Free frameworks, checklists, and tools from the buy-side: find
+              better deals, kill bad ones faster, and know what to offer.
             </p>
           </div>
         </section>
+
+        {/* Free tools strip */}
+        <section className="border-b border-forest-100 bg-forest-900 py-10">
+          <div className="mx-auto grid w-full max-w-6xl gap-4 px-6 sm:grid-cols-3">
+            {tools.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                className="group rounded-lg border border-white/10 bg-forest-800/60 p-5 transition-colors hover:border-blaze-500/50"
+              >
+                <h2 className="font-semibold text-white group-hover:text-blaze-500">
+                  {tool.title} &rarr;
+                </h2>
+                <p className="mt-1.5 text-sm leading-6 text-forest-100/70">
+                  {tool.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="py-16 sm:py-20">
           <div className="mx-auto w-full max-w-6xl px-6">
-            <div className="grid gap-6 sm:grid-cols-2">
-              {guides.map((guide) => (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {resources.map((res) => (
                 <Link
-                  key={guide.href}
-                  href={guide.href}
-                  className="group rounded-lg border border-forest-100 bg-white p-8 transition-all hover:-translate-y-1 hover:border-forest-200 hover:shadow-lg hover:shadow-forest-900/10"
+                  key={res.href}
+                  href={res.href}
+                  className="group flex flex-col rounded-lg border border-forest-100 bg-white p-7 transition-all hover:-translate-y-1 hover:border-forest-200 hover:shadow-lg hover:shadow-forest-900/10"
                 >
-                  <h2 className="text-xl font-semibold text-forest-900 group-hover:text-forest-600">
-                    {guide.title}
+                  <h2 className="text-lg font-semibold text-forest-900 group-hover:text-blaze-700">
+                    {res.title}
                   </h2>
-                  <p className="mt-3 leading-7 text-forest-800/70">
-                    {guide.description}
+                  <p className="mt-3 flex-1 text-sm leading-6 text-forest-800/70">
+                    {res.description}
                   </p>
-                  <p className="mt-5 text-sm font-semibold text-forest-600">
-                    Read the guide &rarr;
+                  <p className="mt-4 text-sm font-semibold text-blaze-600">
+                    {res.cta} &rarr;
                   </p>
                 </Link>
               ))}
@@ -85,12 +180,11 @@ export default function ResourcesPage() {
                 Book a free acquisition call and we&apos;ll apply all of this
                 to your market and your buy box.
               </p>
-              <Link
-                href="/#book"
-                className="mt-6 inline-block rounded-md bg-blaze-600 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-blaze-500"
-              >
-                Book a Free Acquisition Call
-              </Link>
+              <div className="mt-6">
+                <CTAButton href="/#book" event="resources_book_call">
+                  Book a Free Acquisition Call
+                </CTAButton>
+              </div>
             </div>
           </div>
         </section>
