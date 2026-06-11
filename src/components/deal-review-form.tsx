@@ -7,7 +7,7 @@ import { inputClass, labelClass } from "@/components/lead-capture-form";
 const CONTACT_EMAIL = "storagebrokerbrandon@gmail.com";
 
 const dealFields = [
-  { name: "dealLocation", label: "Deal location (city, state) *", required: true, placeholder: "e.g. Waco, TX" },
+  { name: "dealLocation", label: "Deal location — or target market if we're finding the deal", required: false, placeholder: "e.g. Waco, TX" },
   { name: "askingPrice", label: "Asking price", placeholder: "e.g. $2,400,000" },
   { name: "nrsf", label: "NRSF / unit count", placeholder: "e.g. 45,000 SF / 350 units" },
   { name: "occupancy", label: "Occupancy", placeholder: "e.g. 88% physical" },
@@ -93,9 +93,8 @@ export function DealReviewForm() {
           </label>
           <select id="dr-reviewTier" name="reviewTier" className={inputClass}>
             <option value="">Select one</option>
-            <option>Quick Deal Screen ($99)</option>
-            <option>Full Deal Review ($299)</option>
-            <option>Acquisition Strategy Call ($499+)</option>
+            <option>You Bring the Deal — underwriting review ($299)</option>
+            <option>We Find the Deal — sourcing + underwriting ($499)</option>
             <option>Not sure — recommend one</option>
           </select>
         </div>

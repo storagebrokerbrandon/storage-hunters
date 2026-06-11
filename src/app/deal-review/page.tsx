@@ -12,34 +12,28 @@ export const metadata: Metadata = {
 
 const tiers = [
   {
-    name: "Quick Deal Screen",
-    price: "$99",
-    description:
-      "A fast gut-check: is this deal worth your time? We screen price per SF, market, and headline numbers and flag the obvious problems.",
-    items: ["48-hour turnaround", "Pass / dig-deeper verdict", "Top 3 risk flags"],
-  },
-  {
-    name: "Full Deal Review",
+    name: "You Bring the Deal",
     price: "$299",
-    featured: true,
     description:
-      "Full stress-test of the numbers: revenue reality check, expense rebuild, debt assumptions, and what the deal is actually worth.",
+      "Have a deal in hand? Send the OM, rent roll, and T-12. We underwrite it line by line and tell you what we'd pay — and why.",
     items: [
-      "Line-by-line underwriting review",
-      "Rebuilt expense stack",
-      "Valuation range and max offer guidance",
-      "Written summary you can share with partners",
+      "Full underwriting of your deal",
+      "Rebuilt expense stack and revenue reality check",
+      "Max-offer guidance with the reasoning behind it",
+      "Written summary + a call to walk through it",
     ],
   },
   {
-    name: "Acquisition Strategy Call",
-    price: "$499+",
+    name: "We Find the Deal",
+    price: "$499",
+    featured: true,
     description:
-      "A working session on your whole acquisition: the deal, the market, the financing, and the negotiation plan — live, on a call.",
+      "Give us your buy box. We hunt a deal that fits it, underwrite it completely, and present it with our recommendation.",
     items: [
-      "Everything in Full Deal Review",
-      "60-minute live strategy session",
-      "Negotiation and structuring guidance",
+      "Deal sourced to your buy box",
+      "Everything in You Bring the Deal",
+      "Market and trade-area check included",
+      "Your first look — before anyone else",
     ],
   },
 ];
@@ -58,14 +52,15 @@ export default function DealReviewPage() {
               Send us a deal. We&apos;ll stress-test the numbers.
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-forest-800/80">
-              Don&apos;t trust a broker pro forma with your capital. Get an
-              independent buy-side read on the deal before you write the offer.
+              Bring your own deal — or have us find one that fits your buy box.
+              Either way, you&apos;ll know exactly what to pay before you write
+              the offer.
             </p>
           </div>
         </section>
         <section className="py-16 sm:py-20">
           <div className="mx-auto w-full max-w-6xl px-6">
-            <div className="grid gap-6 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-4xl gap-6 lg:grid-cols-2">
               {tiers.map((tier) => (
                 <div
                   key={tier.name}

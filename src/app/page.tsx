@@ -96,27 +96,33 @@ const services = [
 const processSteps = [
   {
     step: "1",
-    title: "Schedule a Call",
+    title: "Acquisition Call",
     description:
-      "Book a free acquisition call to discuss your goals, capital, and timeline.",
+      "Free 30-minute call: your goals, capital, timeline, and how we work together.",
   },
   {
     step: "2",
-    title: "Define Your Buy Box",
+    title: "Determine Your Buy Box",
     description:
-      "Establish target markets, facility size, price range, and return criteria.",
+      "Markets, facility size, price range, deal type, and return targets — written down and ready to hunt.",
   },
   {
     step: "3",
-    title: "Review Opportunities",
+    title: "Find & Underwrite Deals",
     description:
-      "Evaluate deals against your criteria with disciplined underwriting.",
+      "We source on- and off-market opportunities and stress-test every number.",
   },
   {
     step: "4",
-    title: "Execute with Confidence",
+    title: "Submit LOIs",
     description:
-      "Move from offer to close with a clear strategy and experienced support.",
+      "Offers built from real underwriting — you know your max price before you sign anything.",
+  },
+  {
+    step: "5",
+    title: "Close the Transaction",
+    description:
+      "Diligence, financing, and negotiation support all the way to the closing table.",
   },
 ];
 
@@ -190,6 +196,53 @@ export default function Home() {
                 className="inline-block rounded-md border border-white/30 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
               >
                 Book a Call
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* The Funnel — buy-side representation */}
+        <section id="process" className="scroll-mt-16 border-b border-forest-100 py-20 sm:py-24">
+          <div className="mx-auto w-full max-w-6xl px-6">
+            <div className="text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blaze-600">
+                How It Works
+              </p>
+              <h2 className="mx-auto mt-3 max-w-2xl text-3xl font-bold tracking-tight text-forest-900 sm:text-4xl">
+                We represent you on the buy side
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl leading-7 text-forest-800/80">
+                One path, five steps — from the first call to the closing
+                table.
+              </p>
+            </div>
+            <div className="relative mt-14">
+              <div
+                className="absolute left-0 right-0 top-6 hidden h-px bg-forest-100 lg:block"
+                aria-hidden="true"
+              />
+              <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
+                {processSteps.map((step) => (
+                  <div key={step.step} className="relative">
+                    <div className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-blaze-600 bg-white text-lg font-bold text-forest-900">
+                      {step.step}
+                    </div>
+                    <h3 className="mt-5 text-lg font-semibold text-forest-900">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-forest-800/70">
+                      {step.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-14 text-center">
+              <a
+                href={BOOKING_URL}
+                className="inline-block rounded-md bg-blaze-600 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-blaze-500"
+              >
+                Start with Step 1 — Book Your Call
               </a>
             </div>
           </div>
@@ -326,7 +379,7 @@ export default function Home() {
                 {
                   title: "Deal Review",
                   description:
-                    "Already have a deal? Send it over and we'll stress-test the numbers before you make an offer.",
+                    "Bring your deal and we underwrite it ($299) — or we find one for your buy box and underwrite it ($499).",
                   cta: "Request Deal Review",
                   href: "/deal-review",
                   event: "lane_deal_review",
@@ -378,47 +431,6 @@ export default function Home() {
             >
               Book a Free Acquisition Call
             </a>
-          </div>
-        </section>
-
-        {/* Process */}
-        <section id="process" className="scroll-mt-16 py-20 sm:py-24">
-          <div className="mx-auto w-full max-w-6xl px-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blaze-600">
-              Our Process
-            </p>
-            <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight text-forest-900 sm:text-4xl">
-              A disciplined path from strategy to closing
-            </h2>
-            <div className="relative mt-12">
-              <div
-                className="absolute left-0 right-0 top-6 hidden h-px bg-forest-100 lg:block"
-                aria-hidden="true"
-              />
-              <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                {processSteps.map((step) => (
-                  <div key={step.step} className="relative">
-                    <div className="relative z-10 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-forest-900 bg-white text-lg font-bold text-forest-900">
-                      {step.step}
-                    </div>
-                    <h3 className="mt-5 text-lg font-semibold text-forest-900">
-                      {step.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-6 text-forest-800/70">
-                      {step.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="mt-14 text-center">
-              <a
-                href={BOOKING_URL}
-                className="inline-block rounded-md bg-blaze-600 px-8 py-4 text-base font-semibold uppercase tracking-wide text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-blaze-500"
-              >
-                Start with Step 1 — Book Your Call
-              </a>
-            </div>
           </div>
         </section>
 
