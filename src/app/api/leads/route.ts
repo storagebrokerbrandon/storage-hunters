@@ -1,6 +1,24 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
+// Best-effort per-IP rate limit (per serverless instance): 5 submissions
+// per 10 minutes is plenty for a human, hostile for a bot.
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const MAX_BODY_BYTES = 20_000;
+const hits = new Map<string, number[]>();
+
+function rateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (hits.get(ip) ?? []).filter(
+    (t) => now - t < RATE_WINDOW_MS
+  );
+  recent.push(now);
+  hits.set(ip, recent);
+  if (hits.size > 10_000) hits.clear(); // cap memory
+  return recent.length > RATE_LIMIT;
+}
+
 const LEAD_TYPES = new Set([
   "checklist_lead",
   "model_lead",
@@ -35,6 +53,20 @@ export async function POST(request: Request) {
       { error: "Lead intake is not configured yet." },
       { status: 503 }
     );
+  }
+
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (rateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Too many submissions. Please try again in a few minutes." },
+      { status: 429 }
+    );
+  }
+
+  const contentLength = Number(request.headers.get("content-length") ?? 0);
+  if (contentLength > MAX_BODY_BYTES) {
+    return NextResponse.json({ error: "Request too large." }, { status: 413 });
   }
 
   let body: Record<string, unknown>;
