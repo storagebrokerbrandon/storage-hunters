@@ -185,12 +185,12 @@ export default function Home() {
               >
                 Submit Buyer Profile
               </Link>
-              <Link
-                href="/free-checklist"
+              <a
+                href={BOOKING_URL}
                 className="inline-block rounded-md border border-white/30 px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white/10"
               >
-                Free Checklist
-              </Link>
+                Book a Call
+              </a>
             </div>
           </div>
         </section>
